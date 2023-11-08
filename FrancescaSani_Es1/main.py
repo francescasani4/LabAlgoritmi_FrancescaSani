@@ -2,25 +2,22 @@ import random
 from timeit import default_timer as timer
 import matplotlib.pyplot as plt
 from LCS import *
-
-
-def random_string_generator(length=2, min_value=0, max_value=1):  # metodo per la generazione casuale delle sequenze da testare
-    sequence = ""
-    for i in range(length):
-        sequence += str(random.randint(min_value, max_value))
-    return sequence
-
 import string
 
-number_of_strings = 10
-length_of_string = 10
-for x in range(number_of_strings):
-    print(
-        "".join(
-            random.choice(string.ascii_uppercase)
-            for _ in range(length_of_string)
-        )
-    )
+timeArrayBruteForce = []
+timeArrayRecursive = []
+timeArrayRecursiveMemo = []
+timeArrayBottomUp = []
+stepArray = []
+
+maxLength = 100
+j = 15
+
+def random_string_generator(length):
+    sequence = ""
+    for x in range(length):
+        sequence = ("".join(random.choice(string.ascii_uppercase)for _ in range(length)))
+    return sequence
 
 if __name__ == '__main__':
     print("\n")
@@ -31,66 +28,38 @@ if __name__ == '__main__':
     print("********************************************************************")
     print("\n")
 
-    for i in range(5):  # controllo sull'input della dimensione minima
-        i -= 1
-        minLength = input("Inserisci la dimensione minima delle sequenze (min 1): ")
-        minLength = int(minLength)
-        if minLength >= 1:
-            break
-
-    for i in range(5):  # controllo sull'input della dimensione massima
-        i -= 1
-        maxLength = input("Inserisci la dimensione massima delle sequenze (si consiglia max 16): ")
-        maxLength = int(maxLength)
-        if maxLength >= minLength:
-            break
-
-    for i in range(5):  # controllo sull'input dell'incremento per la generazione delle diverse sequenze
-        i -= 1
-        step = input("Inserisci lo step di generazione delle sequenze (min 1): ")
-        step = int(step)
-        if step >= 1:
-            break
-
-    timeArrayBruteForce = []
-    timeArrayRecursive = []
-    timeArrayRecursiveMemo = []
-    timeArrayBottomUp = []
-    stepArray = []
-
-    for i in range(minLength, maxLength + 1, step):
-        sequence1 = random_string_generator(i, 0, 9)  # sequenza X generata casualmente
-        sequence2 = random_string_generator(i, 0, 9)  # sequenza Y generata casualmente
+    for i in range(1, maxLength, j):
+        s1 = random_string_generator(i)  # sequenza X generata casualmente
+        s2 = random_string_generator(i)  # sequenza Y generata casualmente
         print("\n")
         print("Dimensione: ", i)
-        print("Sequenze generate casualmente e confrontate: ", sequence1, "  ", sequence2)
+        print("Sequenze generate casualmente e confrontate: ", s1, "  ", s2)
 
         stepArray.append(i)  # array con la dimensione delle sequenze per le ascisse dei grafici
 
-        lcs1 = LCS(
-            sequence1)  # creazione dell'oggetto LCS a cui verrà passata X come attributo e Y come parametro di volta in volta
+        lcs1 = LCS(s1)  # creazione dell'oggetto LCS a cui verrà passata X come attributo e Y come parametro di volta in volta
 
         # misurazioni sull'algoritmo brute force
         start = timer()
-        lcs1.lcs_bruteForce(sequence2)
+        print("LCS: ", lcs1.lcs_bruteForce(s2))
         end = timer()
         timeArrayBruteForce.append(end - start)
 
         # misurazioni sull'algoritmo puramente ricorsivo
         start = timer()
-        lcs1.lcs_recursive(sequence2)
+        print("LCS: ", lcs1.lcs_recursive(s2))
         end = timer()
         timeArrayRecursive.append(end - start)
 
         # misurazioni sull'algoritmo ricorsivo con memoization
         start = timer()
-        lcs1.lcs_memoization(sequence2)
+        print("LCS: ", lcs1.lcs_memoization(s2))
         end = timer()
         timeArrayRecursiveMemo.append(end - start)
 
         # misurazioni sull'algoritmo bottom-up
         start = timer()
-        lcs1.lcs_bottomUp(sequence2)
+        print("LCS: ", lcs1.lcs_bottomUp(s2))
         end = timer()
         timeArrayBottomUp.append(end - start)
 

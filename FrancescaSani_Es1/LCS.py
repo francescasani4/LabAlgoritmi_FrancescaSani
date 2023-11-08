@@ -38,12 +38,16 @@ class LCS:
                 self.lenght = maxL
                 self.result = maxSub
 
+        return self.lenght
+
     # algoritmo ricorsivo
     def lcs_recursive(self, s):
         m = len(self.sequence) - 1
         n = len(s) - 1
 
         self.lenght = self.lcs_rec(s, m, n)
+
+        return self.lenght
 
     def lcs_rec(self, s, m, n):
         if m < 0 or n < 0:
@@ -60,6 +64,8 @@ class LCS:
 
         c = [[0 for x in range(m + 1)] for y in range(n + 1)]
         self.lenght = self.lcs_recMemoization(s, c, m, n)
+
+        return self.lenght
 
     def lcs_recMemoization(self, s, c, m, n):
         if c[m][n] != 0:
@@ -95,3 +101,5 @@ class LCS:
                     c[j][i] = c[j][i - 1]
 
         self.lenght = c[n][m]
+
+        return self.lenght
