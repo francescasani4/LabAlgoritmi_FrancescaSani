@@ -214,7 +214,7 @@ def test():
     plt.show()
 
     # Bottom-Up
-    plt.plot(length, BottomUp, color="yellow")
+    plt.plot(length, BottomUp, color="orange")
     plt.xlabel("Dimensioni dell'array")
     plt.ylabel("Tempo di esecuzione (ms)")
     plt.title("Versione Bottom-Up")
