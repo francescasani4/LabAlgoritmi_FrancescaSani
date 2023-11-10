@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import string
 import numpy as np
 
-nrIterazioniTest = 30
+nrIterazioniTest = 15
 
-maxLength = 15
+maxLength = 16 # Dimensione massima delle sequenze generate
 
 # Array per salvare i tempi e le dimensioni delle sequenze generate
 BruteForce = []
