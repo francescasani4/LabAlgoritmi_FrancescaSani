@@ -7,7 +7,7 @@ import numpy as np
 
 nrIterazioniTest = 100
 
-maxLength = 12 # Dimensione massima delle sequenze generate
+maxLength = 13 # Dimensione massima delle sequenze generate
 
 # Array per salvare i tempi e le dimensioni delle sequenze generate
 BruteForce = []
@@ -115,7 +115,7 @@ def lcs_bottomUp(s1, s2):
     return lenght
 
 # Funzione per generare sequenze
-def random_string_generator(length):
+def stringGenerator(length):
     sequence = ""
     for x in range(length):
         sequence = ("".join(random.choice(string.ascii_uppercase)for _ in range(length)))
@@ -144,8 +144,8 @@ def drawPlots():
 
 # Funzione per generare la tabella
 def drawTable(columns: list, headers: tuple, title: str):
-    fig, ax = plt.subplots(figsize=(6, 8))
-    plt.title(title)
+    fig, ax = plt.subplots(figsize=(10, 6))
+    #plt.title(title)
 
     data = np.stack(tuple(columns), axis=1)
 
@@ -167,10 +167,10 @@ def drawTable(columns: list, headers: tuple, title: str):
 def test():
     # Misurazione dei tempi di esecuzione
     for i in range(1, maxLength):
-        s1 = random_string_generator(i)
-        s2 = random_string_generator(i)
-        print("\n")
+        s1 = stringGenerator(i)
+        s2 = stringGenerator(i)
         print("Sequenze generate: ", s1, "  ", s2)
+        print("\n")
 
         length.append(i)
 
