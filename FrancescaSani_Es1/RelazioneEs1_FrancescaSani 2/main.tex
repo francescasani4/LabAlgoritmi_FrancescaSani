@@ -84,7 +84,7 @@ Il programma Python scritto utilizza le seguenti librerie:
     \item \textbf{timeit}: permette di misurare i tempi di esecuzione dei vari algoritmi;
     \item \textbf{matplotlib}: permette di generare grafici e tabelle, in modo da poter analizzare al meglio le prestazioni degli algoritmi;
     \item \textbf{random} e \textbf{string}: permettono di generare sequenze di stringhe casuali;
-    \item \textbf{intertools} e \textbf{combinations}, permette di ottenere tutte le sottosequenze della sequenza passata.
+    \item \textbf{intertools} e \textbf{combinations}, permettono di ottenere tutte le sottosequenze della sequenza passata.
 \end{itemize}
 
 \newpage
@@ -95,7 +95,7 @@ Il programma Python scritto utilizza le seguenti librerie:
 Una sottosequenza di una data sequenza è la sequenza stessa alla quale tolgo zero o più elementi. Formalmente, data una sequenza $X = <x_1, x_2, ... , x_m>$, un'altra sequenza $Z = <z_1, z_2, ... , z_k>$ è una \textbf{sottosequenza} di X se $\exists$ una sequenza di indici $I = <i_1, i_2, ... , i_k>$ tale che $\forall j = 1, 2, ..., k$ si ha $x_{ij} = z_j$.
 $\\$
 $\\$
-Date due sequenze X e Y, diciamo che una sequenza Z è una \textbf{sottosequenza comune} di X e Y se Z è una sottosequenze di X e Y. 
+Date due sequenze X e Y, diciamo che una sequenza Z è una \textbf{sottosequenza comune} di X e Y se Z è una sottosequenza di X e Y. 
 $\\$
 $\\$
 Nel problema della \textbf{LCS}, date due sequenze $X = <x_1, x_2, ... , x_m>$ e $\\$ $Y = <y_1, y_2, ... , y_n>$, si desidera trovare una sottosequenza comune di lunghezza massima comune a X e Y.
@@ -141,7 +141,7 @@ $\\$
 $\\$
 La soluzione \textbf{ricorsiva} richiede la definizione di una ricorrenza per il valore di una soluzione ottima.
 $\\$
-Definiamo $c[i, j]$ come la lunghezza di una LCS delle sequenze $X_i$ e $Y_j$. Se $i = 0$ o $j = 0$, una delle sequenze ha lunghezzza 0. La sottostruttura ottima del problema della LCS consente di scrivere la seguente formula ricorsiva:
+Definiamo $c[i, j]$ come la lunghezza di una LCS delle sequenze $X_i$ e $Y_j$. Se $i = 0$ o $j = 0$, una delle sequenze ha lunghezza 0. La sottostruttura ottima del problema della LCS consente di scrivere la seguente formula ricorsiva:
 $\\$
 $\\$
 $c[i, j] =\left\{
@@ -154,14 +154,14 @@ max(c[i, j-1], c[i-1, j])&&&\ se\ i, j > 0\ x_i \neq y_j\\
 $\\$
 $\\$
 $\\$
-Anche questa implementazione, nonostante sia semplice, è inefficiente a causa della sovrapposizione nei sottoproblemi, portando a una complessità esponenziale. 
+Anche questa implementazione, nonostante sia semplice, è inefficiente a causa della sovrapposizione nei sottoproblemi, pertanto la complessità temporale resta esponenziale. 
 
 \subsection{Versione ricorsiva con memoization}
 
 Per evitare la sovrapposizione dei sottoproblemi, attraverso la \textbf{memoization}, è possibile memorizzare i risultati ottenuti in una tabella, in modo da non doverli calcolare più volte.
 $\\$
 $\\$
-Questo permette di migliorare notevolmente le prestazioni dell'algoritmo (rispetto alla versione di forza-bruta e alla versione ricorsiva), ma a causa della presenza della ricorsione può non essere molto efficiente quando si ha input di grandi dimensioni.
+Questo permette di migliorare notevolmente le prestazioni dell'algoritmo (rispetto alla versione di forza-bruta e alla versione ricorsiva), ma a causa della presenza della ricorsione può non essere molto efficiente quando si hanno input di grandi dimensioni.
 
 \subsection{Versione bottom-up}
 
@@ -172,7 +172,7 @@ Date due sequenze in input, memorizza i valori $c[i][j]$ in una tabella $c[0...m
 
 \subsection{Prestazioni attese}
 
-Questa relazione, come detto in precedenza, ha l'obbiettivo di confrontare le prestazioni di quattro diverse implementazioni di "calcolo" per trovare la più lunga sottosequenza comune tra due stringhe.
+Questa relazione, come detto in precedenza, ha l'obiettivo di confrontare le prestazioni di quattro diverse implementazioni di "calcolo" per trovare la più lunga sottosequenza comune tra due stringhe.
 $\\$
 Quello che ci si aspetta dai test eseguiti, e commentati nelle sezioni successive, è che il metodo migliore per ricavare la LCS sia l'approccio \textit{bottom-up}.
 $\\$
@@ -205,7 +205,7 @@ $\\$
 
 \section{Documentazione del codice}
 
-Per svolgere i vari test è stato scritto del codice in Python, ovvero sono stati definiti vari metodi che permettono di calcolare la LCS con i diversi algoritmi in esame, generare grafici e tabelle, etc.
+Per svolgere i vari test è stato scritto codice in Python, ovvero sono stati definiti vari metodi che permettono di calcolare la LCS con i diversi algoritmi in esame, generare grafici e tabelle, etc.
 
 \subsection{Descrizione dei metodi implementati}
 
@@ -220,7 +220,7 @@ In questa sezione vengono spiegate le funzionalità di ogni metodo che è possib
     \item $lcs\_bottomUp(s1,\ s2)$: metodo per l'algoritmo bottom-up, in cui viene calcolata la LCS partendo dai primi caratteri delle stringhe e memorizzando i risultati in una matrice; 
     \item $stringGenerator(length)$: metodo per generare delle sequenze di stringhe casuali;
     \item $measureTime(function, s1, s2)$: metodo per calcolare i tempi medi della funzione data;
-    \item $drawPlots()$: metodo per genera grafici;
+    \item $drawPlots()$: metodo per generare grafici;
     \item $drawTable(columns, headers, title)$: metodo per generare tabelle;
     \item $test()$: metodo chiamato dal $main()$ per eseguire i test, il quale a sua volta chiama quasi tutti i metodi definiti in precedenza.
 \end{itemize}
@@ -262,7 +262,7 @@ Inoltre, è riportato un grafico che racchiude i 4 grafici singoli, in modo da p
 
 \subsection{Tabelle dei tempi di esecuzione}
 
-Di seguito è riportata la tabella contenete i tempi di esecuzione dei quattro algoritmi analizzati, grazie ai quali è stato possibile generare i grafici della sezione precedente.
+Di seguito è riportata la tabella contenente i tempi di esecuzione dei quattro algoritmi analizzati, grazie ai quali è stato possibile generare i grafici della sezione precedente.
 
 \begin{figure} [!h]
     \centering
@@ -281,20 +281,20 @@ $\\$
 Dal grafico in \textit{figura 5} è possibile trarre subito una prima conclusione, ovvero che il metodo migliore per calcolare la LCS è quello bottom-up, invece l'approccio ricorsivo è quello peggiore.
 $\\$
 $\\$
-Il grafico in \textit{figura 6} e il grafico in \textit{figura 7}, i quali rappresentano rispettivamente l'andamento dei tempi di esecuzione per l'algoritmo di forza-bruta e per quello ricorsivo, confermano che la loro complessità temporale è esponenziale.
+Il grafico in \textit{figura 6} e quello in \textit{figura 7}, i quali rappresentano rispettivamente l'andamento dei tempi di esecuzione per l'algoritmo di forza-bruta e per quello ricorsivo, confermano che la loro complessità temporale è esponenziale.
 $\\$
-È interessante notare che nonostante siano entrambi esponenziali uno è migliore dell'altro. Infatti, anche se il metodo di forza-bruta a primo impatto possa sembrare peggiore, poiché esamina tutte le sottosequenze di X e controlla se esse sono presenti in Y, non è stato così.
-$\\$
-$\\$
-Analogamente, il grafico in \textit{figura 8} e il grafico in \textit{figura 9}, i quali rappresentano rispettivamente l'andamento dei tempi di esecuzione per l'algoritmo ricorsivo con memoization e per quello bottom-up, confermano che la loro complessità temporale è quadratico.
+È interessante notare che, nonostante siano entrambi esponenziali, uno è migliore dell'altro. Infatti, anche se il metodo di forza-bruta a primo impatto possa sembrare peggiore, poiché esamina tutte le sottosequenze di X e controlla se esse sono presenti in Y, non è stato così.
 $\\$
 $\\$
-Andando adesso ad analizzare la tabella in \textit{figura 10} è possibile confrontare direttamente i tempi di esecuzione dei quattro approcci in esame. Nonostante le dimensioni delle sequenze generate aumentino, i tempi di esecuzione di bottom-up sono quasi sempre i più piccoli. Infatti per piccole dimensioni delle sequenze (1/2 caratteri), gli approcci migliori sono quelli ricorsivo e di forza-bruta.
-$\\$
-È inoltre importante osservare che l'algoritmo ricorsivo con memoization, rispetto a quello ricorsivo e quello di forza-bruta, mostra notevoli vantaggi, nonostane il picco temporale che si verifica con dimensioni maggiori delle sequenze (circa 8/9 caratteri), osservabile anche nei grafici in \textit{figura 5 e 8}.
+Analogamente, il grafico in \textit{figura 8} e il grafico in \textit{figura 9}, i quali rappresentano rispettivamente l'andamento dei tempi di esecuzione per l'algoritmo ricorsivo con memoization e per quello bottom-up, confermano che la loro complessità temporale è quadratica.
 $\\$
 $\\$
-In sintesi, è stato possibile affermare che grazie l'analisi condotta, ciò che era stato descritto nella sezione teorica, è confermato.
+Andando adesso ad analizzare la tabella in \textit{figura 10} è possibile confrontare direttamente i tempi di esecuzione dei quattro approcci in esame. Nonostante le dimensioni delle sequenze generate aumentino, i tempi di esecuzione di bottom-up sono quasi sempre minori. Infatti per piccole dimensioni delle sequenze (1/2 caratteri), gli approcci migliori sono quelli ricorsivo e di forza-bruta.
+$\\$
+È inoltre importante osservare che l'algoritmo ricorsivo con memoization, rispetto a quello ricorsivo e quello di forza-bruta, mostra notevoli vantaggi, nonostante il picco temporale che si verifica con dimensioni maggiori delle sequenze (circa 8/9 caratteri), osservabile anche nei grafici in \textit{figura 5} e \textit{8}.
+$\\$
+$\\$
+In sintesi, è stato possibile affermare che grazie all'analisi condotta, ciò che era stato descritto nella sezione teorica, è confermato.
 
 \newpage
 
