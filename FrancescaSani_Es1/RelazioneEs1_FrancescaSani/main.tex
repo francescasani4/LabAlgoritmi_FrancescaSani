@@ -5,9 +5,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{flushend,stfloats,amsthm,chngpage,times,lipsum,lastpage} 
 
-
-
-
 \begin{document}
 
 \begin{titlepage}
@@ -240,24 +237,34 @@ Di seguito sono riportati i grafici che, al variare della lunghezza delle string
 $\\$
 Inoltre, è riportato un grafico che racchiude i 4 grafici singoli, in modo da poter avere un confronto più accurato.
 
-\includegraphics[width=290px]{plots/GraficoLCS.png}
-\captionof{figure}{Tempi di esecuzione per calcolare la LCS}
+\begin{center}
+    \includegraphics[width=290px]{plots/GraficoLCS.png}
+    \captionof{figure}{Tempi di esecuzione per calcolare la LCS}
+\end{center}
 
 \subsubsection{Algoritmo forza-bruta}
-\includegraphics[width=290px]{plots/Forza-Bruta.png}
-\captionof{figure}{Tempi di esecuzione dell'algoritmo Forza-Bruta}
+\begin{center}
+    \includegraphics[width=290px]{plots/Forza-Bruta.png}
+    \captionof{figure}{Tempi di esecuzione dell'algoritmo Forza-Bruta}
+\end{center}
 
 \subsubsection{Algoritmo ricorsivo}
-\includegraphics[width=290px]{plots/Ricorsiva.png}
-\captionof{figure}{Tempi di esecuzione dell'algoritmo Ricorsivo}
+\begin{center}
+    \includegraphics[width=290px]{plots/Ricorsiva.png}
+    \captionof{figure}{Tempi di esecuzione dell'algoritmo Ricorsivo}
+\end{center}
 
 \subsubsection{Algoritmo ricorsivo con memoization}
-\includegraphics[width=290px]{plots/Memoization.png}
-\captionof{figure}{Tempi di esecuzione dell'algoritmo ricorsivo con Memoization}
+\begin{center}
+    \includegraphics[width=290px]{plots/Memoization.png}
+    \captionof{figure}{Tempi di esecuzione dell'algoritmo ricorsivo con Memoization}
+\end{center}
 
 \subsubsection{Algoritmo bottom-up}
-\includegraphics[width=300px]{plots/Bottom-Up.png}
-\captionof{figure}{Tempi di esecuzione dell'algoritmo Bottom-Up}
+\begin{center}
+    \includegraphics[width=300px]{plots/Bottom-Up.png}
+    \captionof{figure}{Tempi di esecuzione dell'algoritmo Bottom-Up}
+\end{center}
 
 
 \subsection{Tabelle dei tempi di esecuzione}
@@ -278,10 +285,10 @@ Di seguito è riportata la tabella contenente i tempi di esecuzione dei quattro 
 In conclusione, osservando i risultati ottenuti dai vari test ed analizzando i grafici e la tabella, è stato possibile raggiungere l'obiettivo di questa relazione: confrontare quattro diverse implementazioni per calcolare la più lunga sottosequenza comune (LCS) tra due stringhe.
 $\\$
 $\\$
-Dal grafico in \textit{figura 5} è possibile trarre subito una prima conclusione, ovvero che il metodo migliore per calcolare la LCS è quello bottom-up, invece l'approccio ricorsivo è quello peggiore.
+Dal grafico in \textit{figura 5} è possibile trarre una prima conclusione, ovvero che il metodo migliore per calcolare la LCS è quello bottom-up, invece l'approccio ricorsivo è quello peggiore.
 $\\$
 $\\$
-Il grafico in \textit{figura 6} e quello in \textit{figura 7}, i quali rappresentano rispettivamente l'andamento dei tempi di esecuzione per l'algoritmo di forza-bruta e per quello ricorsivo, confermano che la loro complessità temporale è esponenziale.
+Il grafico in \textit{figura 6} e quello in \textit{figura 7}, che rappresentano rispettivamente l'andamento dei tempi di esecuzione per l'algoritmo di forza-bruta e per quello ricorsivo, confermano che la loro complessità temporale è esponenziale.
 $\\$
 È interessante notare che, nonostante siano entrambi esponenziali, uno è migliore dell'altro. Infatti, anche se il metodo di forza-bruta a primo impatto possa sembrare peggiore, poiché esamina tutte le sottosequenze di X e controlla se esse sono presenti in Y, non è stato così.
 $\\$
