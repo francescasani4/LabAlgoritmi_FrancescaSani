@@ -89,7 +89,6 @@ def memoization(s1, s2, c, m, n):
         return c[m][n]
 
 # Algoritmo Bottom-Up
-
 def lcs_bottomUp(s1, s2):
     m = len(s1)
     n = len(s2)
@@ -162,6 +161,21 @@ def drawTable(columns: list, headers: tuple, title: str):
 
     fig.savefig("./table/TabellaLCS.png", bbox_inches='tight')
 
+#Funzione per generare i singoli grafici
+def drawPlot(length, array, title:str, name:str, c:str):
+    plt.plot(length, array, label="Forza-Bruta", color=c)
+
+    plt.xlabel("Dimensioni dell'array")
+    plt.ylabel("Tempo di esecuzione (ms)")
+
+    plt.title(title)
+    #plt.legend()
+
+    plt.savefig(f"plot/{name}.png")
+    plt.show()
+
+    plt.clf()
+
 # Funzione di test
 def test():
     # Misurazione dei tempi di esecuzione
@@ -189,36 +203,16 @@ def test():
     #Generazione dei singoli grafici
 
     # Forza-Bruta
-    plt.plot(length, BruteForce, color="blue")
-    plt.xlabel("Dimensioni dell'array")
-    plt.ylabel("Tempo di esecuzione (ms)")
-    plt.title("Versione Forza-Bruta")
-    plt.savefig("./plot/Forza-Bruta.png")
-    plt.show()
+    drawPlot(length, BruteForce, "Versione Forza-Bruta", "Forza-Bruta", "blue")
 
     # Ricorsivo
-    plt.plot(length, Recursive, color="green")
-    plt.xlabel("Dimensioni dell'array")
-    plt.ylabel("Tempo di esecuzione (ms)")
-    plt.title("Versione Ricorsiva")
-    plt.savefig("./plot/Ricorsiva.png")
-    plt.show()
+    drawPlot(length, Recursive, "Versione Ricorsiva", "Ricorsiva", "green")
 
     # Ricorsivo con Memoization
-    plt.plot(length, Memoization, color="red")
-    plt.xlabel("Dimensioni dell'array")
-    plt.ylabel("Tempo di esecuzione (ms)")
-    plt.title("Versione Ricorsiva con Memoization")
-    plt.savefig("./plot/Memoization.png")
-    plt.show()
+    drawPlot(length, Memoization, "Versione Ricorsiva con Memoization", "Memoization", "red")
 
     # Bottom-Up
-    plt.plot(length, BottomUp, color="orange")
-    plt.xlabel("Dimensioni dell'array")
-    plt.ylabel("Tempo di esecuzione (ms)")
-    plt.title("Versione Bottom-Up")
-    plt.savefig("./plot/Bottom-Up.png")
-    plt.show()
+    drawPlot(length, BottomUp, "Versione Bottom-Up", "Bottom-Up", "orange")
 
     drawPlots()
 
